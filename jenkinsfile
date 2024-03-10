@@ -17,5 +17,13 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+       stage ('Deploy-to_tomcat')
+          steps {
+        sshagent (['tomcat']) {
+          sh 'scp -o StrictHostChekingKey=no traget/*.war ubuntu@34.125.86.238:/home/iamonaws2024/tomcat/apache-tomcat-10.1.19/webapps/webapp.war'
+         }
       }
  }
+}
+}
