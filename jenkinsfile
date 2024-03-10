@@ -21,7 +21,7 @@ pipeline {
        stage ('Deploy_to_tomcat') {
           steps {
         sshagent(['tomcat']) {
-          sh 'scp -o StricktHostChecking=no traget/*.war ubuntu@34.125.86.238:/home/iamonaws2024/tomcat/apache-tomcat-10.1.19/webapps/webapp.war'
+          sh 'scp -o strickthostchecking=no traget/*.war ubuntu@34.125.86.238:/home/iamonaws2024/tomcat/apache-tomcat-10.1.19/webapps/webapp.war'
          }
       }
  }
